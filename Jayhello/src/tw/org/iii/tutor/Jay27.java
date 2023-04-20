@@ -16,7 +16,7 @@ public class Jay27 {
 	static void m1(int b1,int b2) {
 		System.out.println("3. m1(int b1,int b2)");
 	}
-//	static void m1(int b1,Byte b2) {
-//		System.out.println("4. m1(int b1,int b2)");
-//	}
+	static void m1(int b1,Byte b2) {
+		System.out.println("4. m1(int b1,int b2)");
+	}
 }
