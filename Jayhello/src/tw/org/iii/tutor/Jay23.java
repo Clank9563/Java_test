@@ -6,7 +6,7 @@ import tw.org.iii.myclasses.TWId_T;
 public class Jay23 {
 
 	public static void main(String[] args) {
-		String id = "P215629090";
+		String id = "V185035499";
 		if (id.matches("[A-Z][1289][0-9]{8}")) {//正規表達式
 			System.out.println("OK");
 		}else {
@@ -22,6 +22,8 @@ public class Jay23 {
 		TWId id3 = new TWId(false);
 		TWId id4 = new TWId(true,0);
 		
+		
+		System.out.println(id1.checkId("V185035499"));
 		
 		System.out.println(id1.getId());
 		System.out.println(id2.getId());
