@@ -8,12 +8,12 @@ public class TWId_T {
 		this((int)(Math.random()*2) == 0);
 	}
 	public TWId_T(boolean isMale) {
-		this(isMale, (int)(Math.random()*26));
+		this(isMale, (int)(Math.random()*26));//第一句要寫this or super 參考: https://www.runoob.com/w3cnote/the-different-this-super.html
 	}
 	public TWId_T(int area) {
 		this((int)(Math.random()*2) == 0, area);
 	}
-	public TWId_T(boolean isMale, int area) {
+	public TWId_T(boolean isMale, int area) {//super;
 		String c1 = letters.substring(area, area+1);
 		StringBuilder sb = new StringBuilder(c1);
 		sb.append(isMale?"1":"2");

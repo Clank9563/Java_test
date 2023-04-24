@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -16,6 +17,7 @@ public class Guess_Number extends JFrame implements ActionListener {
 	private JTextField input;
 	private JTextArea log;
 	private String answer;
+	private int counter;
 
 	public Guess_Number() {
 		super("猜數字遊戲");// JFrame(String title)
@@ -23,7 +25,7 @@ public class Guess_Number extends JFrame implements ActionListener {
 		input = new JTextField();
 		log = new JTextArea();
 
-		guess.setFont(new Font("monospaced", Font.BOLD | Font.ITALIC, 20));// monospaced:等寬字體
+	
 
 		setLayout(new BorderLayout());
 		JPanel top = new JPanel(new BorderLayout());
@@ -35,14 +37,32 @@ public class Guess_Number extends JFrame implements ActionListener {
 //		guess.addActionListener(new MyListener());;
 		guess.addActionListener(this);
 		
-
+		initview();
 		// javax.swing寫最後
 		setSize(640, 480);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		answer = createAnswer(4); 
+		newGame();
 
+	}
+
+	private void initview() {
+		input.setFont(new Font(null,Font.BOLD,24));
+		log.setFont(new Font(null, Font.BOLD|Font.ITALIC, 16));
+		guess.setFont(new Font("monospaced", Font.BOLD | Font.ITALIC, 20));// monospaced:等寬字體
+		
+	}
+
+	private void newGame() {
+		answer = createAnswer(4);
+//		System.out.println("answer="+answer);
+		log.setText("");
+		input.setText("");
+		counter =0;
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
@@ -53,12 +73,30 @@ public class Guess_Number extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String strInput = input.getText().trim();
-		String result = cheakAB(strInput);
-		log.append(strInput+"=>"+result + "\n");
-		input.setText(null);
+		if(isValid(strInput)) {
+			counter++;
+			String result = cheakAB(strInput);
+			log.append(String
+					.format("%d.%s => %s \n",counter, strInput,result));
+			input.setText(null);
+			if(result.equals("4A0B")) {
+				JOptionPane.showMessageDialog(null,"恭喜你猜對了");
+				newGame();
+			}else if(counter ==10) {
+				JOptionPane.showMessageDialog(null,"你輸了,答案是"+answer);
+				newGame();
+				
+			}
+		}
+	
 
 	}
 	
+	private boolean isValid(String strInput) {
+		// TODO 這裡寫檢查輸入
+		return true;
+	}
+
 	private String cheakAB(String guess) {
 		int A,B;A=B=0;
 		for(int i=0;i<guess.length();i++) {
