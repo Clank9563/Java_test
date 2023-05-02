@@ -74,8 +74,8 @@ public class MyDrawerV2 extends JPanel {
 	private class MyListener extends MouseAdapter{
 		@Override
 		public void mousePressed(MouseEvent e) {
-			Line line = new Line(nowColor);
-			
+			Line line = new Line(nowColor);//點下去換新的顏色
+			//https://blog.csdn.net/chen_z_p/article/details/82749846
 			Point point = new Point();
 			point.x = e.getX(); point.y = e.getY();
 			line.addPoint(point);

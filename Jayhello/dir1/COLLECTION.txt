@@ -1,0 +1,9 @@
+SET
+1.不會重複
+2.沒有順序性
+LIST
+1.可重複
+2.有順序性
+arraaylist 異動性不大
+linkedlist
+https://cloud.tencent.com/developer/news/700913

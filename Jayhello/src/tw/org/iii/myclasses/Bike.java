@@ -1,6 +1,8 @@
 package tw.org.iii.myclasses;
 
-public class Bike {//預設繼承Object
+import java.io.Serializable;
+
+public class Bike implements Serializable{//預設繼承Object//implements Serializable檔案60
 	protected double speed;// 屬性
 //	private私有 public公有 protected保護:只有子類別可以呼叫
 	private String color;
