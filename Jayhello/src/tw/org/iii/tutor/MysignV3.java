@@ -20,7 +20,7 @@ import tw.org.iii.myclasses.MyDrawerV3;
 public class MysignV3 extends JFrame {
 	private MyDrawerV3 myDrawer;
 	private JButton clear, undo, redo, saveObj, loadObj,save;
-	
+	private MyClock myClock;
 
 	public MysignV3() {
 		super("手寫簽名程式");
@@ -32,6 +32,7 @@ public class MysignV3 extends JFrame {
 		saveObj = new JButton("存檔");
 		loadObj = new JButton("讀取");
 		save = new JButton("存成圖檔");
+		myClock = new  MyClock();
 		
 		
 		
@@ -49,6 +50,7 @@ public class MysignV3 extends JFrame {
 		top.add(saveObj);
 		top.add(loadObj);
 		top.add(save);
+		top.add(myClock);
 		add(top, BorderLayout.NORTH);
 
 		// 清除功能

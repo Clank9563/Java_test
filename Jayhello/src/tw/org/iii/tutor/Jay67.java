@@ -12,15 +12,18 @@ public class Jay67 {
 
 	public static void main(String[] args) {
 		try {
-			File source = new File("dir1/lines.jpg");
-			BufferedInputStream bin = new BufferedInputStream(new FileInputStream(source));
+			File source = new File("dir1/Jay.jpg");
+			BufferedInputStream bin = new BufferedInputStream(
+					new FileInputStream(source));
 			byte[]buf = new byte[(int)source.length()];
 			bin.read(buf);
 			bin.close();
 			
-			Socket socket = new Socket(InetAddress.getByName("10.0.104.190"),9999);
+			Socket socket = new Socket(//Socket就是TCP
+					InetAddress.getByName("10.0.104.202"),9999);
 			BufferedOutputStream bout = new BufferedOutputStream(
 					socket.getOutputStream());
+//			socket.getOutputStream().write(buf);也可以寫這樣
 			bout.write(buf);
 			bout.flush();
 			bout.close();
